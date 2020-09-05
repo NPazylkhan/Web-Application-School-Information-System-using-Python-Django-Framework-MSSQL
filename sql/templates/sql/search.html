@@ -1,0 +1,26 @@
+{% extends "layout/basic.html" %}
+{% block title %} Search {% endblock %}
+{% block content %}
+{% if submitbutton == 'Search' and request.GET.q != '' and request.GET.q != ' ' %}
+    {% if results %}
+        <h3>Results for: <b>{{ request.GET.q }}</b></h3>
+        <hr/>
+        <table style="width:100%">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Year</th>
+                </tr>
+                {% for result in results %}
+                <tr>
+                        <td>{{result.firstname}}</td>
+                        <td>{{result.lastname}}</td>
+                        <td>{{result.year}}</td>
+                </tr> 
+                {% endfor %}
+            </table> 
+    {% endif %}    
+{% else %}
+    No search results for this query
+{% endif %}  
+{% endblock %}

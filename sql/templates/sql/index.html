@@ -1,0 +1,35 @@
+{% extends "layout/basic.html" %}
+{% block title %} Person{% endblock %}
+{% block content %} 
+<ul padding: 14px 16px; margin=0;><li><a href="{% url 'add' %}">Create</a></li></ul>
+<form style="text-align: right;" action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+    <div class="input-placeholder">
+        <img  src="http://127.0.0.1:8000/static/admin/img/search.svg" alt="search">
+        <input name="q" value="{{request.GET.q}}" type="text" placeholder="Search..."/><span class="fa fa-search form-control-feedback"></span>
+        <input type="submit" name="submit" value="Search"/>
+    </div>
+</form> 
+<!-- <font color=""> -->
+    <table style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Year</th>
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for b in bs %}
+        <tr>
+            <td>{{ b.firstname }}</td>
+            <td>{{ b.lastname }}</td>
+            <td>{{ b.year }}</td>
+            <td style="text-align: center;"><a href="{% url 'detail' pk=b.pk %}">*</a></td>
+            <td style="text-align: center;"><a href="{% url 'edit' pk=b.pk %}">#</a></td>
+            <td style="text-align: center;"><a href="{% url 'delete' pk=b.pk %}">x</a></td>    
+        </tr> 
+        {% endfor %}
+    </table>
+<!-- </font> -->
+
+{% endblock %}

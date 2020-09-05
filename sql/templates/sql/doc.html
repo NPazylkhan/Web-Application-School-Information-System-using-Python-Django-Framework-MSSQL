@@ -1,0 +1,114 @@
+{% extends "layout/basic.html" %}
+{% block title %} Search {% endblock %}
+{% block content %}
+<form action="{% url 'doc' %}" method="GET" value="{{request.GET.d}}">
+        <input class="item" name="d" value="{{request.GET.d}}" type="text" placeholder="ID"/><span class="fa fa-search form-control-feedback"></span>
+        <input class="item1" name="f" value="{{request.GET.f}}" type="text" placeholder="Enter your First Name"/><span class="fa fa-search form-control-feedback"></span>
+        <input type="submit" name="submit" value="Submit"/>
+</form>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+{% if submitbutton == 'Submit' and request.GET.d != '' and request.GET.f != '' %}
+    {% if results %}
+       <!-- <div id="content"> -->
+          <div>
+            {% for result in results %}
+              <img align="left" width="70" height="105" src="{{ result.image.image.url }}" alt="image">
+            {% endfor %}
+          </div> 
+          <div class="angle"><h3>Pazylkhan Nurmakhan</h3>
+            <p>Document for 
+              {% for result in results %} 
+                {{ result.firstname }} 
+              {% endfor %}</p>
+            <p>It's {% now "jS F Y H:i" %}</p>
+          </div>               
+          <hr/>
+          <table style="width:100%"><div id="content">
+                <tr>
+                  <th>Name of person and his year.</th>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Year</th>
+                </tr>
+                {% for result in results %}
+                <tr>
+                        <td>{{result.firstname}}</td>
+                        <td>{{result.lastname}}</td>
+                        <td>{{result.year}}</td>
+                </tr> 
+                {% endfor %}
+              <tr>
+                <th>Position and etc. of person.</th>
+              </tr>
+                <tr>
+                    <th>Position</th>
+                    <th>Age</th>
+                    <th>Email address</th>
+                    <th>Phone number</th>
+                </tr>
+                {% for result in results %}
+                <tr>
+                        <td>{{result.position.position}}</td>
+                        <td>{{result.position.age}}</td>
+                        <td>{{result.position.email}}</td>
+                        <td>{{result.position.telephone}}</td>
+                </tr> 
+                {% endfor %}</div> 
+            </table>  
+            
+            <p>
+              <h3>
+                Why do we use it?
+              </h3>
+                    It is a long established fact that a reader will be distracted by the readable content of a page 
+                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less 
+                    normal distribution of letters, as opposed to using 'Content here, content here', making it look 
+                    like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as 
+                    their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their 
+                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </p>
+            <p>
+              <h3>
+                Where can I get some?
+              </h3>
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                    in some form, by injected humour, or randomised words which don't look even slightly believable. If you are
+                    going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the 
+                    middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, 
+                    making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined 
+                    with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated 
+                    Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+            </p>
+          <!-- </div>  -->
+          <div id="editor"></div>
+          <!-- <div class="wrapper"> -->
+            <button onclick="window.print();return false;" >Print</button>
+            <button id="cmd">Download as PDF</button>
+         <!-- </div> -->
+      <!-- </div> -->
+    {% endif %}
+{% else %}
+  No search results for this query
+{% endif %} 
+        <!-- <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script> -->
+ <script id="rendered-js">
+          var doc = new jsPDF();
+          var specialElementHandlers = {
+            "#editor": function (element, renderer) {
+              return true;
+            } 
+          };
+          $("#cmd").click(function () {
+            doc.fromHTML($("#content").html(), 15, 15, {
+                'width': 170,
+                    'elementHandlers': specialElementHandlers });
+            doc.save("file.pdf");
+          });
+           </script>       
+{% endblock %}

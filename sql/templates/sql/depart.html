@@ -1,0 +1,19 @@
+{% extends "layout/basic.html" %}
+{% block title %} Department {% endblock %}
+{% block content %}  
+<!-- <button><a href="{% url 'add' %}">Create</a></button> -->
+    <div>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Purpose</th>
+        </tr>
+        {% for d in ds %}
+        <tr>
+                <td>{{ d.name }}</td>
+                <td>{{ d.aim }}</td>
+        </tr> 
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

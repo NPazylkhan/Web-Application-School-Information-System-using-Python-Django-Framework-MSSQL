@@ -1,0 +1,23 @@
+{% extends "layout/basic.html" %}
+{% block title %} Position {% endblock %}
+{% block content %}  
+<!-- <button><a href="{% url 'add' %}">Create</a></button> -->
+    <div>
+    <table style="width:100%">
+        <tr>
+            <th>Position</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone number</th>
+        </tr>
+        {% for p in ps %}
+        <tr>
+                <td>{{ p.position }}</td>
+                <td>{{ p.age }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.telephone }}</td>
+        </tr> 
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

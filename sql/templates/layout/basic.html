@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type"
+        content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'sql/style.css' %}">
+        <title>General - desk</title>
+    </head>
+<body>
+   <ul>
+        <li><a href="{% url 'general' %}">General</a></li>
+        <li><a href="{% url 'index' %}">Person</a></li>
+        <li><a href="{% url 'image' %}">Image</a></li>
+        <li><a href="{% url 'position' %}">Position</a></li>
+        <li><a href="{% url 'depart' %}">Department</a></li>
+        <li><a href="{% url 'workers' %}">Worker</a></li>
+        <li><div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">Documents
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'doc' %}">For Workers</a>
+                    <a href="{% url 'dir' %}">Managers</a>
+                </div>
+            </div> 
+        </div></li>
+        <li><a href="{% url 'subscribe' %}">Email</a></li>
+    </ul>
+        {% block content %}
+        <center><font color="#333"><h1>This is the General Page of your Website "Industry"</h1></font></center>
+        <!-- <a href="{% url 'sendmail' %}">Send test mail</a> -->
+        {% endblock %}
+    <!-- <div class="footer_bottom-line_copy">
+            <small>&copy; Copyright 2019, INDUSTRY inc.</small>
+    </div> -->  
+</body>
+</html>

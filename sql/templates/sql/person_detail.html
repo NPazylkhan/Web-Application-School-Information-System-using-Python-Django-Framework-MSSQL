@@ -1,0 +1,14 @@
+{% extends "layout/basic.html" %}
+
+{% block title %} Detail {% endblock %}
+{% block content %}
+
+<h1>First name: {{ person.firstname }}</h1>
+<h1>Last name: {{ person.lastname }}</h1>
+<h1>Year: {{ person.year }}</h1>
+<h1>Position: {{person.position.position}}</h1>
+<h1>Age: {{person.position.age}}</h1>
+<h1>Email address: {{person.position.email}}</h1>
+<h1>Phone number: {{person.position.telephone}}</h1>
+
+{% endblock %}

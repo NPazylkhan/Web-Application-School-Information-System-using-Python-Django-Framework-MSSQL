@@ -1,0 +1,19 @@
+{% extends "layout/basic.html" %}
+{% block title %} Worker {% endblock %}
+{% block content %}  
+<!-- <button><a href="{% url 'add' %}">Create</a></button> -->
+    <div>
+    <table style="width:100%">
+        <tr>
+            <th>Department</th>
+            <th>Corporation</th>
+        </tr>
+        {% for w in ws %}
+        <tr>
+                <td>{{ w.department }}</td>
+                <td>{{ w.corp }}</td>
+        </tr> 
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

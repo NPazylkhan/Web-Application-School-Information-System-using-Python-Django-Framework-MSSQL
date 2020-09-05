@@ -1,0 +1,181 @@
+header h4{
+  font-size:40pt;
+  text-transform:uppercase;
+  text-align: center;
+}
+h1 {
+  font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */ 
+  font-size: 250%; /* Размер шрифта в процентах */ 
+ }
+
+html { 
+  background: url(bg2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+/* nav {
+  font-size: 26pt;
+  width:150pt;
+  float: left;
+}
+
+nav a{
+  display: block;
+  margin: 10px 0px;
+} */
+
+section{
+  margin-left: 170px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+menu{
+  text-align: left;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(177, 146, 146);
+}
+/* 
+footer{
+  text-align: center;
+  margin-bottom: auto;
+  font-size: 12px;
+  width: 40%;
+}
+.footer_bottom-line_copy {
+  font-size: 12px;
+  width: 40%;
+} */
+.angle{
+text-align: right;
+}
+.item {
+  padding: 0px 0px 0px 2px !important;
+  height: 15px;
+  line-height: 15px;
+  width: 25px;
+}
+.item1{
+padding: 0px 0px 0px 2px !important;
+}
+input {
+  border: 0;
+  background: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+input:focus{
+  outline: 0;
+}
+.input-placeholder{
+  background-color: #eee;
+  display: inline-block;
+  padding: 2px;
+}
+
+.flex {
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:rgba(125, 126, 125, 0.308);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.wrapper {
+  text-align: left;
+}
+

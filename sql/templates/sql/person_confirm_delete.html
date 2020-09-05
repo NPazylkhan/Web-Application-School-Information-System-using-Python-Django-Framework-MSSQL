@@ -1,0 +1,15 @@
+{% extends "layout/basic.html" %}
+
+{% block title %} Delete {% endblock %}
+
+{% block content %}
+<h1>First name: {{ person.firstname }}</h1>
+<h1>Position: {{person.position.position}}</h1>
+<h1>Last name: {{ person.lastname }}</h1>
+<h1>Year: {{ person.year }}</h1>
+    <form method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete">
+    </form>
+{% endblock %}
